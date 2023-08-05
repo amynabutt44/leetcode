@@ -1,0 +1,33 @@
+
+void helper(node* root, int& count)
+{
+	if (root == nullptr)
+	{
+		return;
+	}
+	helper(root->left, count);
+	if (root->left == nullptr && root->right == nullptr)\
+	{
+		count++;
+	}
+	helper(root->right, count);
+}
+int leafodes(node* root) /// leaf nodes
+{
+	int count = 0;
+	helper(root, count);
+	return count;
+
+}
+
+int height(node* root)
+{
+	if (root == nullptr)
+	{
+		return 0;
+	}
+	int left = height(root->left);
+	int right = height(root->right);
+	int ans = max(left, right) + 1;
+	return ans;
+ }
